@@ -43,8 +43,8 @@ def get_data(request, state = "nv"):
 
     # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
 
-    # csrftoken = client.cookies['_policydock_session']
-    csrftoken = client.cookies['csrf-token']
+    csrftoken = client.cookies['_policydock_session']
+    # csrftoken = client.cookies['csrf-token']
 
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
 
@@ -58,7 +58,7 @@ def get_data(request, state = "nv"):
     # r = requests.post('https://coronavirusapi.com/users/sign_in', data=login)
 
 
-    response = requests.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
+    response = client.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
 
 
 
