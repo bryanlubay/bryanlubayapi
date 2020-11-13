@@ -34,14 +34,14 @@ from lxml import html
 # import twill.commands
 # import twill
 
-@csrf_exempt
+# @csrf_exempt
 def get_data(request, state = "nv"):
 
     client = requests.session()
     client.get('https://coronavirusapi.com/users/sign_in')
 
     # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
-
+    hmm = client.
     csrftoken = client.cookies['_policydock_session']
     # csrftoken = client.cookies['csrf-token']
 
@@ -49,7 +49,7 @@ def get_data(request, state = "nv"):
 
     post_request = client.post('https://coronavirusapi.com/users/sign_in', data=login)
 
-    csrftoken = client.cookies['_policydock_session']
+    # csrftoken = client.cookies['_policydock_session']
 
     response = client.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
 
