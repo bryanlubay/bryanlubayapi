@@ -38,12 +38,13 @@ from lxml import html
 @csrf_exempt
 def get_data(request, state = "nv"):
 
-    client = requests.Session()
+    client = requests.session()
     client.get('https://coronavirusapi.com/users/sign_in')
 
     # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
 
-    csrftoken = client.cookies['_policydock_session']
+    # csrftoken = client.cookies['_policydock_session']
+    csrftoken = client.cookies['csrf-token']
 
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
 
