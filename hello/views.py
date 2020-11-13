@@ -41,15 +41,9 @@ def get_data(request, state = "nv"):
     client = requests.Session()
     client.get('https://coronavirusapi.com/users/sign_in')
 
-    # return print(client.cookies)
-
-    print(client.cookies.keys)
-
     # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
 
     csrftoken = client.cookies['_policydock_session']
-
-
 
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
 
@@ -63,7 +57,7 @@ def get_data(request, state = "nv"):
     # r = requests.post('https://coronavirusapi.com/users/sign_in', data=login)
 
 
-    response = client.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
+    response = requests.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
 
 
 
