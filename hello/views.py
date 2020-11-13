@@ -46,7 +46,7 @@ def get_data(request, state = "nv"):
     csrftoken = client.cookies['_policydock_session']
     # csrftoken = client.cookies['csrf-token']
 
-    login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
+    login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'csrfmiddlewaretoken' : csrftoken} 
 
     post_request = client.post('https://coronavirusapi.com/users/sign_in', data=login)
 
