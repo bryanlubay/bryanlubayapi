@@ -51,7 +51,7 @@ def get_data(request, state = "nv"):
 
 
 
-    login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'csrf-token' : csrftoken} 
+    login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
 
     post_request = client.post('https://coronavirusapi.com/users/sign_in', data=login)
 
