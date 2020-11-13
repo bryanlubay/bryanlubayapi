@@ -6,7 +6,7 @@ from django.middleware.csrf import get_token
 from .models import Greeting
 
 import sys
-
+from bs4 import BeautifulSoup
 
 sys.path
 sys.executable
