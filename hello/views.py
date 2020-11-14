@@ -41,6 +41,8 @@ def get_data(request, state = "nv"):
 
     # csrftoken = client.cookies['_policydock_session']
     # csrftoken = client.cookies['csrf-token']
+    return JsonResponse(data={'r' : client.headers})
+
     soup = BeautifulSoup(client.cookies.keys, 'lxml')
     csrftoken = soup.select_one('meta[name="csrf-token"]')
 
