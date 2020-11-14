@@ -43,7 +43,7 @@ def get_data(request, state = "nv"):
     # csrftoken = client.cookies['csrf-token']
     return JsonResponse(data={'r' : client.cookies.keys()})
 
-    soup = BeautifulSoup(client.cookies., 'lxml')
+    # soup = BeautifulSoup(client.cookies., 'lxml')
     csrftoken = soup.select_one('meta[name="csrf-token"]')
 
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
