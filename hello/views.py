@@ -29,6 +29,8 @@ def db(request):
 
     return render(request, "db.html", {"greetings": greetings})
 
+
+from bs4 import BeautifulSoup
 # @csrf_exempt
 def get_data(request, state = "nv"):
 
