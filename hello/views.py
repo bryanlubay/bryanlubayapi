@@ -29,11 +29,6 @@ def db(request):
 
     return render(request, "db.html", {"greetings": greetings})
 
-from twill.commands import *
-from lxml import html
-# import twill.commands
-# import twill
-
 # @csrf_exempt
 def get_data(request, state = "nv"):
 
@@ -41,7 +36,7 @@ def get_data(request, state = "nv"):
     client.get('https://coronavirusapi.com/users/sign_in')
 
     # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
-    hmm = client.
+
     csrftoken = client.cookies['_policydock_session']
     # csrftoken = client.cookies['csrf-token']
 
