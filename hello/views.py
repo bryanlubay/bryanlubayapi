@@ -51,7 +51,7 @@ def get_data(request, state = "nv"):
 
     # csrftoken = client.cookies['_policydock_session']
 
-    response = client.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
+    response = post_request.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
 
 
 
