@@ -37,14 +37,13 @@ def get_data(request, state = "nv"):
     client = requests.session()
     client.get('https://coronavirusapi.com/users/sign_in')
 
-    # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
+    return JsonResponse(data={'r' : client.cookies.keys()})
 
-    # csrftoken = client.cookies['_policydock_session']
+    csrftoken = client.cookies['_policydock_session']
     # csrftoken = client.cookies['csrf-token']
-    # return JsonResponse(data={'r' : client.headers})
-    return JsonResponse(client.headers)
+    # return JsonResponse(data={'r' : })
     # soup = BeautifulSoup(client.headers, 'lxml')
-    csrftoken = soup.select_one('meta[name="csrf-token"]')
+    # csrftoken = soup.select_one('meta[name="csrf-token"]')
 
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
 
