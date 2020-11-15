@@ -39,7 +39,7 @@ def get_data(request, state = "nv"):
 
     # return JsonResponse(data={'r' : client.cookies.values()})
 
-    csrftoken = client.cookies.extract_cookies()
+    csrftoken = client.cookies['authenticity_token']
     # csrfwtf = client.cookies.extract_cookies()
     # csrftoken = client.cookies['csrf-token']
     # return JsonResponse(data={'r' : })
