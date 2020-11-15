@@ -39,7 +39,8 @@ def get_data(request, state = "nv"):
 
     # return JsonResponse(data={'r' : client.cookies.values()})
 
-    csrftoken = client.cookies.values()
+    csrftoken = client.cookies.extract_cookies()
+    # csrfwtf = client.cookies.extract_cookies()
     # csrftoken = client.cookies['csrf-token']
     # return JsonResponse(data={'r' : })
     # soup = BeautifulSoup(client.headers, 'lxml')
@@ -51,7 +52,7 @@ def get_data(request, state = "nv"):
 
     # csrftoken = client.cookies['_policydock_session']
 
-    response = post_request.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
+    response = client.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
 
 
 
