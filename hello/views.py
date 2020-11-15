@@ -37,9 +37,9 @@ def get_data(request, state = "nv"):
     client = requests.session()
     client.get('https://coronavirusapi.com/users/sign_in')
 
-    return JsonResponse(data={'r' : client.cookies.keys()})
+    # return JsonResponse(data={'r' : client.cookies.keys()})
 
-    csrftoken = client.cookies
+    csrftoken = client.cookies['_policydock_session']
     # csrfwtf = client.cookies.extract_cookies()
     # csrftoken = client.cookies['csrf-token']
     # return JsonResponse(data={'r' : })
