@@ -42,7 +42,7 @@ def get_data(request, state = "nv"):
 
 
 
-    return JsonResponse(data={'r' : temp, 'shit' : temp[temp.find('csrf-token') + 1]})
+    return JsonResponse(data={'r' : temp, 'shit' : temp[temp.find('csrf-token') + 22]})
 
     csrftoken = client.cookies['_policydock_session']
     # csrfwtf = client.cookies.extract_cookies()
