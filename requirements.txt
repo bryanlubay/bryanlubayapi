@@ -4,3 +4,4 @@ django-heroku
 django-cors-headers
 requests
 twill
+bs4

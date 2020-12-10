@@ -29,21 +29,28 @@ def db(request):
 
     return render(request, "db.html", {"greetings": greetings})
 
-from twill.commands import *
-from lxml import html
-# import twill.commands
-# import twill
 
+from bs4 import BeautifulSoup
 # @csrf_exempt
 def get_data(request, state = "nv"):
 
     client = requests.session()
-    client.get('https://coronavirusapi.com/users/sign_in')
+    client.get('https://coronavirusapi.com/users/sign_in').cookies
 
-    # return JsonResponse(data={'r' : client.cookies['_policydock_session']})
-    hmm = client.
-    csrftoken = client.cookies['_policydock_session']
+    temp = client.get('https://coronavirusapi.com/users/sign_in').content.decode()
+
+
+
+
+    # return JsonResponse(data={'r' : temp, 'shit' : temp[temp.find('csrf-token') + 21 : temp.find('==')] + '=='})
+
+    csrftoken = temp[temp.find('csrf-token') + 21 : temp.find('==')] + '=='
+    # csrftoken = client.cookies['_policydock_session']
+    # csrfwtf = client.cookies.extract_cookies()
     # csrftoken = client.cookies['csrf-token']
+    # return JsonResponse(data={'r' : })
+    # soup = BeautifulSoup(client.headers, 'lxml')
+    # csrftoken = soup.select_one('meta[name="csrf-token"]')
 
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
 
