@@ -55,6 +55,7 @@ def get_data(request, state = "nv"):
 
 
 
+
     data = response.text
     data = data.replace('\n',',')
     data = data.split(',')
