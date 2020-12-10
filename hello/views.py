@@ -63,6 +63,8 @@ def get_data(request, state = "nv"):
 
 
 
+
+
     data = response.text
     data = data.replace('\n',',')
     data = data.split(',')
@@ -86,5 +88,7 @@ def get_data(request, state = "nv"):
         if counter == 4:
             counter = 0
 
+    twoweeks = []
+
     # return JsonResponse(data=values)
-    return JsonResponse(data={'Date' : epoch, 'Tested' : tested, 'Positive' : positive, 'Deaths' : deaths }, status=200)
+    return JsonResponse(data={'Date' : epoch, 'Tested' : tested, 'Positive' : positive, 'Deaths' : deaths, 'Two Weeks' : twoweeks }, status=200)
