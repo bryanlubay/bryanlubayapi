@@ -91,4 +91,4 @@ def get_data(request, state = "nv"):
     twoweeks = []
 
     # return JsonResponse(data=values)
-    return JsonResponse(data={'Date' : epoch, 'Tested' : tested, 'Positive' : positive, 'Deaths' : deaths, 'Two Weeks' : twoweeks }, status=200)
+    return JsonResponse(data={'Date' : epoch, 'Tested' : tested, 'Positive' : positive, 'Deaths' : deaths, 'Two Weeks' : data }, status=200)
