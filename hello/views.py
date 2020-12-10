@@ -16,9 +16,7 @@ import csv
 
 # Create your views here.
 def index(request):
-    # return HttpResponse('Hello from Python!')
     return render(request, "index.html")
-
 
 def db(request):
 
@@ -29,8 +27,6 @@ def db(request):
 
     return render(request, "db.html", {"greetings": greetings})
 
-
-from bs4 import BeautifulSoup
 # @csrf_exempt
 def get_data(request, state = "nv"):
 
@@ -39,31 +35,11 @@ def get_data(request, state = "nv"):
 
     temp = client.get('https://coronavirusapi.com/users/sign_in').content.decode()
 
-
-
-
-    # return JsonResponse(data={'r' : temp, 'shit' : temp[temp.find('csrf-token') + 21 : temp.find('==')] + '=='})
-
     csrftoken = temp[temp.find('csrf-token') + 21 : temp.find('==')] + '=='
-    # csrftoken = client.cookies['_policydock_session']
-    # csrfwtf = client.cookies.extract_cookies()
-    # csrftoken = client.cookies['csrf-token']
-    # return JsonResponse(data={'r' : })
-    # soup = BeautifulSoup(client.headers, 'lxml')
-    # csrftoken = soup.select_one('meta[name="csrf-token"]')
-
     login = {'user[email]': 'bryanlubay1@gmail.com','user[password]': 'FUCK355th!@#$', 'authenticity_token' : csrftoken} 
-
     post_request = client.post('https://coronavirusapi.com/users/sign_in', data=login)
 
-    # csrftoken = client.cookies['_policydock_session']
-
     response = client.get("http://coronavirusapi.com/getTimeSeries/" + state + "/")
-
-
-
-
-
 
     data = response.text
     data = data.replace('\n',',')
@@ -88,7 +64,4 @@ def get_data(request, state = "nv"):
         if counter == 4:
             counter = 0
 
-    twoweeks = []
-
-    # return JsonResponse(data=values)
-    return JsonResponse(data={'Date' : epoch, 'Tested' : tested, 'Positive' : positive, 'Deaths' : deaths, 'Two Weeks' : data }, status=200)
+    return JsonResponse(data={'Date' : epoch, 'Tested' : tested, 'Positive' : positive, 'Deaths' : deaths}, status=200)
